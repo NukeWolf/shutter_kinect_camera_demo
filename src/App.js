@@ -7,6 +7,8 @@ function App() {
   const [rotation, setRotation] = useState(0);
   const [distance, setDistance] = useState(5);
   const [cameraFOV, setFOV] = useState(120);
+  const [cameraDepth, setCameraDepth] = useState(87);
+
   return (
     <div className="App">
       <Canvas
@@ -15,6 +17,7 @@ function App() {
         cameraRotation={rotation}
         distance={distance}
         cameraFOV={cameraFOV}
+        cameraDepth={cameraDepth}
       ></Canvas>
       <div className="Options" style={{ marginTop: "40px" }}>
         <label>Rotation from center (Degrees)</label>
@@ -25,6 +28,7 @@ function App() {
             setRotation(e.target.value);
           }}
         ></input>
+        <br />
         <label>Distance from center (Inches)</label>
         <input
           type="text"
@@ -33,6 +37,8 @@ function App() {
             setDistance(e.target.value);
           }}
         ></input>
+        <br />
+
         <label>Camera FOV in deg</label>
         <input
           type="text"
@@ -41,6 +47,17 @@ function App() {
             setFOV(e.target.value);
           }}
         ></input>
+        <br />
+
+        <label>Camera Depth in Inches</label>
+        <input
+          type="text"
+          value={cameraDepth}
+          onChange={(e) => {
+            setCameraDepth(e.target.value);
+          }}
+        ></input>
+        <br />
       </div>
     </div>
   );

@@ -6,18 +6,18 @@ const SHUTTER_X_PX = 400;
 const WIDTH_OF_SHUTTER_INCHES = 26;
 const DEPTH_OF_SHUTTER_INCHES = 20;
 
-const MAX_DISTANCE_FROM_CENTER_INCHES = 10;
-
-const CAMERA_DEPTH_INCHES = 87.00787;
+//const MAX_DISTANCE_FROM_CENTER_INCHES = 10;
 
 const Canvas = (props) => {
   const canvasRef = useRef(null);
-  const { cameraRotation, distance, cameraFOV } = props;
+  const { cameraRotation, distance, cameraFOV, cameraDepth } = props;
 
   const CAMERA_THETA_FROM_CENTER_RAD =
     (parseInt(cameraRotation) * Math.PI) / 180;
   const DISTANCE_FROM_CENTER_INCHES = parseInt(distance);
   const CAMERA_FOV_RAD = (parseInt(cameraFOV) * Math.PI) / 180;
+
+  const CAMERA_DEPTH_INCHES = cameraDepth;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -98,6 +98,7 @@ const Canvas = (props) => {
     DISTANCE_FROM_CENTER_INCHES,
     CAMERA_THETA_FROM_CENTER_RAD,
     CAMERA_FOV_RAD,
+    CAMERA_DEPTH_INCHES,
   ]);
 
   return <canvas ref={canvasRef} {...props} />;
