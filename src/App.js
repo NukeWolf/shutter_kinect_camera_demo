@@ -8,6 +8,7 @@ function App() {
   const [distance, setDistance] = useState(5);
   const [cameraFOV, setFOV] = useState(120);
   const [cameraDepth, setCameraDepth] = useState(87);
+  const [showCamera, setShowCamera] = useState(false);
 
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         distance={distance}
         cameraFOV={cameraFOV}
         cameraDepth={cameraDepth}
+        originalCamera={showCamera}
       ></Canvas>
       <div className="Options" style={{ marginTop: "40px" }}>
         <label>Rotation from center (Degrees)</label>
@@ -58,6 +60,13 @@ function App() {
           }}
         ></input>
         <br />
+        <label>Show Original Camera?</label>
+        <input
+          type="checkbox"
+          onChange={(e) => {
+            setShowCamera(!showCamera);
+          }}
+        />
       </div>
     </div>
   );
