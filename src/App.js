@@ -9,12 +9,12 @@ function App() {
   const [cameraFOV, setFOV] = useState(120);
   const [cameraDepth, setCameraDepth] = useState(87);
   const [showCamera, setShowCamera] = useState(false);
-
+  const [differentCamera, setDifferentCamera] = useState(false);
   return (
     <div className="App">
       <Canvas
-        width="1000"
-        height="600"
+        width="1300"
+        height="900"
         cameraRotation={rotation}
         distance={distance}
         cameraFOV={cameraFOV}
@@ -67,6 +67,48 @@ function App() {
             setShowCamera(!showCamera);
           }}
         />
+        <br />
+        <label>Different Second Camera Config?</label>
+        <input
+          type="checkbox"
+          onChange={(e) => {
+            setDifferentCamera(!differentCamera);
+          }}
+        />
+        <br />
+        <br />
+        {differentCamera && (
+          <>
+            <label>Rotation from center (Degrees)</label>
+            <input
+              type="text"
+              value={rotation}
+              onChange={(e) => {
+                setRotation(e.target.value);
+              }}
+            ></input>
+            <br />
+
+            <label>Camera FOV in deg</label>
+            <input
+              type="text"
+              value={cameraFOV}
+              onChange={(e) => {
+                setFOV(e.target.value);
+              }}
+            ></input>
+            <br />
+
+            <label>Camera Depth in Inches</label>
+            <input
+              type="text"
+              value={cameraDepth}
+              onChange={(e) => {
+                setCameraDepth(e.target.value);
+              }}
+            ></input>
+          </>
+        )}
       </div>
     </div>
   );
