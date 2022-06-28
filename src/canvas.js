@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 const PIXELS_TO_INCH = 3;
 const SHUTTER_Y_PX = 60;
-const SHUTTER_X_PX = 400;
+const SHUTTER_X_PX = 600;
 const WIDTH_OF_SHUTTER_INCHES = 26;
 const DEPTH_OF_SHUTTER_INCHES = 20;
 
